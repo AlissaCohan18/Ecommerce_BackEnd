@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
       },
     ],
   })
-    .then((dbCatData) => res.json(dbCatData))
+    .then((dbData) => res.json(dbData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -71,12 +71,12 @@ router.put("/:id", (req, res) => {
       },
     }
   )
-    .then((dbCatData) => {
-      if (!dbCatData) {
+    .then((dbData) => {
+      if (!dbData) {
         res.status(404).json({ message: "No category found with this id" });
         return;
       }
-      res.json(dbCatData);
+      res.json(dbData);
     })
     .catch((err) => {
       console.log(err);
@@ -92,12 +92,12 @@ router.delete("/:id", (req, res) => {
       id: req.params.id,
     },
   })
-    .then((dbCatData) => {
-      if (!dbCatData) {
+    .then((dbData) => {
+      if (!dbData) {
         res.status(404).json({ message: "No category found with this id" });
         return;
       }
-      res.json(dbCatData);
+      res.json(dbData);
     })
     .catch((err) => {
       console.log(err);
